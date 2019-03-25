@@ -1,8 +1,10 @@
 # include <iostream>
 using namespace std;
 int main(){
-	int n;
-	cin >> n;
-	cout << n << "这样加文字哦";
+	int sum=1;
+	for(int i=1;i<16;i++){
+		sum *=i;
+	}
+	cout<<sum;
 	return 0;
-} 
+}
