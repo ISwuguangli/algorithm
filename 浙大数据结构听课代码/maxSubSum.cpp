@@ -1,22 +1,29 @@
 #include <iostream>
 using namespace std;
-
+//提供一个错误例子，已改正 
 int main(){
-	int a[6] = {-5,3,-4,6,5,-2};
-	int cur = 0;
-	int max = 0;
-	for(int i=0;i<sizeof(a)/sizeof(int);i++){
-		cur+=a[i];
-		if(cur<0){
-			cur=0;
-		} 
-		if(cur>max){
-			max = cur;
-		}
-		cout<<"i="<<i<<" "<<"cur="<<cur<<endl;
+	long now = 0;
+	long max = 0;
+	long pr = 0;
+	long a[100000];
+	long n;
+	cin>>n;
+	for(int i=0;i<n;i++){
+		cin>>a[i];
 	}
-	cout << max << endl;
+	for(int i=0;i<n;i++){
+		now+=a[i];
+		if(now < pr){
+			//这里可以改的now<max，pr就是maxs 
+			//不是所有都要舍弃，小于零舍弃 
+			now = 0;
+		}
+		if(now>=pr){
+			pr = now;
+			max=now;
+		}
+	}
+	cout<<max;
 	return 0;
 } 
-
 
